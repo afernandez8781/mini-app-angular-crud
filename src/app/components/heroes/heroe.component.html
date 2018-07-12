@@ -1,0 +1,50 @@
+<h3>Usuarios <small>{{ heroe.nombre }}</small></h3>
+<button [routerLink]="['heroes']" class="btn btn-outline-danger">
+        Regresar
+</button>
+
+<hr>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <form (ngSubmit)="guardar()" #forma=ngForm>
+
+            <div class="form-group">
+                <label>Nombre</label>
+                <input [(ngModel)]="heroe.nombre" type="text" name="nombre" class="form-control" placeholder="Nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label>Sexo</label>
+                <select [(ngModel)]="heroe.sexo" class="form-control" name="casa">
+                    <option value="Femenino">Femenino</option>
+                    <option value="Masculino">Masculino</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Correo</label>
+                <input [(ngModel)]="heroe.correo" type="text" name="correo" class="form-control" placeholder="Correo" required>
+            </div>
+
+            <div class="form-group">
+                <label>Telefono</label>
+                <input [(ngModel)]="heroe.telefono" type="text" name="telefono" class="form-control" placeholder="Telefono" required>
+            </div>
+
+            <div class="form-group">
+                <label>Bio</label>
+                <textarea [(ngModel)]="heroe.bio" name="bio" type="text" name="bio" class="form-control">
+                </textarea>
+            </div>
+
+            <div class="form-group">
+                <button [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary">
+                    Guardar cambios
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
